@@ -67,12 +67,12 @@ class AlphaBeta:
             return game.Score(boardState, self.originPlayer)
         v = 1e500
         for a in game.PossibleStakes(boardState):
-            v = min(v, self.Max_Value(game.MakeStake(boardState, player, a), game.Oppo(player), depth + 1))
+            v = min(v, self.Max_Value(game.MakeStake(boardState, player, a), game.Oppo(player), depth + 1, alpha, beta))
             if v <= alpha:
                 return v
             beta = min(beta, v)
         for a in game.PossibleRaids(boardState, player):
-            v = min(v, self.Max_Value(game.MakeRaid(boardState, player, a), game.Oppo(player), depth + 1))
+            v = min(v, self.Max_Value(game.MakeRaid(boardState, player, a), game.Oppo(player), depth + 1, alpha, beta))
             if v <= alpha:
                 return v
             beta = min(beta, v)
