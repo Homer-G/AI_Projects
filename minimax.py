@@ -1,4 +1,4 @@
-class Minimax():
+class Minimax:
     def __init__(self, searchDepth, game, originPlayer):
         self.searchDepth = searchDepth
         self.log = str()
