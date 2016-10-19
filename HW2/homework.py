@@ -31,7 +31,6 @@ f.close()
 
 if algo == "MINIMAX":
     result = minimax.Minimax_Decision(originBoardState)
-    print(result)
     f = open("output.txt", "w")
     chars = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', \
              'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
@@ -47,7 +46,6 @@ if algo == "MINIMAX":
 
 if algo == "ALPHABETA":
     result = alphabeta.ABSearch(originBoardState)
-    print(result)
     f = open("output.txt", "w")
     chars = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', \
              'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
@@ -59,12 +57,11 @@ if algo == "ALPHABETA":
     f.write(resultIndex + " " + actionType + "\n")
     for i in range(boardSize):
         f.write("".join(result[2][i]) + "\n")
+    f.
     f.close()
-
-
 
 # print(game.PossibleRaids(originBoardState, 'X'))
 # print(game.PossibleStakes(originBoardState))
 # print(game.MakeRaid(originBoardState, 'O', 4))
 # print(game.Score(originBoardState,'O'))
-#print(game.Score(originBoardState, originPlayer))
+# print(game.Score(originBoardState, originPlayer))
