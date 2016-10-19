@@ -37,16 +37,16 @@ class Game:
 
     #return a set of all the possible stake
     def PossibleStakes(self, boardState):
-        possibleStakes = set()
+        possibleStakes = []
         for i in range(self.boardSize):
             for j in range(self.boardSize):
                 if boardState[i][j] == '.':
-                    possibleStakes.add(i * self.boardSize + j)
+                    possibleStakes.append(i * self.boardSize + j)
         return possibleStakes
 
     #return a set of all the possible moves
     def PossibleRaids(self, boardState, player):
-        possibleRaids = set()
+        possibleRaids = []
         for i in range(self.boardSize):
             for j in range(self.boardSize):
                 if boardState[i][j] != ".":
@@ -60,7 +60,7 @@ class Game:
                     if self.tuple_valid(t) and boardState[t[0]][t[1]] == self.Oppo(player):
                         hasOppoNeighbour = True
                     if hasPlayerNeighbour and hasOppoNeighbour:
-                        possibleRaids.add(i * self.boardSize + j)
+                        possibleRaids.append(i * self.boardSize + j)
         return possibleRaids
 
     #operate a raid and return the state
@@ -86,5 +86,3 @@ class Game:
             return 'O'
         else:
             return 'X'
-
-
