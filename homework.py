@@ -27,7 +27,9 @@ for i in range(boardSize):
 f.close()
 
 print(game.MakeStake(originBoardState, 'O', 3))
-result = minimax.Minimax_Decision(originPlayer,originBoardState)
+
+
+result = minimax.Minimax_Decision(originBoardState)
 print(result)
 f = open("output.txt", "w")
 chars = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', \
@@ -42,4 +44,9 @@ for i in range(boardSize):
     f.write("".join(result[2][i])+"\n")
 f.close()
 
+
+print(game.PossibleRaids(originBoardState, 'X'))
+print(game.PossibleStakes(originBoardState))
+print(game.MakeRaid(originBoardState, 'O', 4))
+print(game.Score(originBoardState,'O'))
 #print(game.Score(originBoardState, originPlayer))

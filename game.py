@@ -21,17 +21,13 @@ class Game:
 
     #return score based on boardState
     def Score(self, boardState, player):
-        if player == 'X':
-            oppo = 'O'
-        else:
-            oppo = 'X'
         playerScore = 0
         oppoScore = 0
         for i in range(self.boardSize):
             for j in range(self.boardSize):
                 if boardState[i][j] == player:
                     playerScore += self.boardValues[i][j]
-                elif boardState[i][j] == oppo:
+                elif boardState[i][j] == self.Oppo(player):
                     oppoScore += self.boardValues[i][j]
         return playerScore - oppoScore
 
@@ -59,8 +55,8 @@ class Game:
                         hasPlayerNeighbour = True
                     if self.tuple_valid(t) and boardState[t[0]][t[1]] == self.Oppo(player):
                         hasOppoNeighbour = True
-                    if hasPlayerNeighbour and hasOppoNeighbour:
-                        possibleRaids.append(i * self.boardSize + j)
+                if hasPlayerNeighbour and hasOppoNeighbour:
+                    possibleRaids.append(i * self.boardSize + j)
         return possibleRaids
 
     #operate a raid and return the state
